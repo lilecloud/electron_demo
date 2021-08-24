@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <title>Hello World!</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div id="vueApp">
+      <video ref="preview" autoplay width="200" height="100" muted></video>
+      <div>
+        <button class="btn btn-danger" @click="btnStartClicked">录制</button>
+        <button class="btn btn-danger" @click="btnStopClicked">停止</button>
+      </div>
+    </div>
+  </body>
+  <script src="./render.js"></script>
+</html>
