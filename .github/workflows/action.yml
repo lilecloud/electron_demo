@@ -29,4 +29,3 @@ jobs:
           body: file://result.html
           to: lile_0126@126.com
           from: GitHub Actions
-          content_type: text/html
