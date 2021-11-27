@@ -3,7 +3,7 @@ name: 'github actions weather bot'
 on: 
   push:
   schedule: 
-    - cron: '0 0 * * *'
+    - cron: '0 23 * * *'
 
 
 
@@ -18,14 +18,25 @@ jobs:
         run: bash ./weather.sh
       - name: 'Get Date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
-      - name: 'Send mail'
+      - name: 'Send mail_1'
         uses: dawidd6/action-send-mail@master
         with:
           server_address: smtp.126.com
           server_port: 465
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: xian Weather Report (${{env.REPORT_DATE}})
+          subject: 西安天气预报 (${{env.REPORT_DATE}})
           body: file://result.html
+          to: lile_0126@126.com
+          from: GitHub Actions
+      - name: 'Send mail_2'
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.126.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 日常提醒 (${{env.REPORT_DATE}})
+          body: 数据结构&算法
           to: lile_0126@126.com
           from: GitHub Actions
